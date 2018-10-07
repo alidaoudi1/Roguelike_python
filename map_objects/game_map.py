@@ -37,11 +37,9 @@ class GameMap:
             y = randint(0,map_height-h-1)
             new_room = Rect(x,y,w,h)
             for other_room in rooms : 
-                print("lol")
                 if new_room.intersect(other_room):
                     break
                 else :
-                    print("a")
                     self.create_room(new_room)
                     (new_x,new_y)=new_room.center()
                     if num_rooms == 0 :
