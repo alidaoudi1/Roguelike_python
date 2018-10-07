@@ -25,6 +25,7 @@ def main():
     libtcod.console_init_root(screen_width, screen_height, 'libtcod tutorial revised', False)
     con = libtcod.console_new(screen_width,screen_height)
     game_map = GameMap(map_width,map_height)
+    game_map.make_map()
     while not libtcod.console_is_window_closed():
         libtcod.sys_check_for_event(libtcod.EVENT_KEY_PRESS, key, mouse) 
         
@@ -39,6 +40,7 @@ def main():
         fullscreen = action.get('fullscreen')
         if move :
             dx,dy = move 
+            print(game_map.is_blocked(player.x+dx,player.y+dy))
             if not game_map.is_blocked(player.x+dx,player.y+dy):
                 player.move(dx,dy)
 
